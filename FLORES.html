@@ -641,82 +641,88 @@
             <!-- Burbuja -->
             <div class="cat-bubble"> te amo, bebe M & A 💕</div>
 
-            <!-- SVG gato enamorado -->
-            <svg class="cat-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g class="cat-body-g">
-                    <!-- Cola -->
-                    <path class="tail" d="M 68 75 Q 90 60 85 45 Q 80 35 72 42" fill="none" stroke="#f9a8c9"
-                        stroke-width="5" stroke-linecap="round" />
-
-                    <!-- Cuerpo -->
-                    <ellipse cx="50" cy="72" rx="24" ry="19" fill="#ffc0d9" />
-
-                    <!-- Patas delanteras -->
-                    <rect x="32" y="83" width="10" height="8" rx="4" fill="#ffaac8" />
-                    <rect x="58" y="83" width="10" height="8" rx="4" fill="#ffaac8" />
-
-                    <!-- Cabeza -->
-                    <ellipse cx="50" cy="46" rx="22" ry="20" fill="#ffd4e8" />
-
-                    <!-- Oreja izquierda -->
-                    <g class="ear-left" style="transform-origin:34px 30px">
-                        <polygon points="28,30 34,14 42,30" fill="#ffc0d9" />
-                        <polygon points="30,29 34,17 40,29" fill="#ff8fb3" />
-                    </g>
-                    <!-- Oreja derecha -->
-                    <g class="ear-right" style="transform-origin:66px 30px">
-                        <polygon points="58,30 66,14 72,30" fill="#ffc0d9" />
-                        <polygon points="60,29 66,17 70,29" fill="#ff8fb3" />
-                    </g>
-
-                    <!-- Ojo izquierdo — corazón enamorado -->
-                    <g class="eye-left" style="transform-origin:40px 46px">
-                        <ellipse cx="40" cy="46" rx="8" ry="8" fill="#fff0f5" />
-                        <g class="heart-eye" style="transform-origin:40px 46px">
-                            <!-- corazón SVG simple -->
-                            <path
-                                d="M40 50 C40 50 33 44 33 40 C33 37 36 35 40 39 C44 35 47 37 47 40 C47 44 40 50 40 50Z"
-                                fill="#ff4d78" transform="scale(0.55) translate(32,34)" />
+            <!-- Contenedor para los 2 gatitos enamorados -->
+            <div style="display: flex; justify-content: center; align-items: flex-end; margin-top: 5px;">
+                <!-- SVG gato hembra enamorada -->
+                <svg class="cat-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="transform: scaleX(-1); margin-right: -10px;">
+                    <g class="cat-body-g">
+                        <path class="tail" d="M 68 75 Q 90 60 85 45 Q 80 35 72 42" fill="none" stroke="#f9a8c9" stroke-width="5" stroke-linecap="round" />
+                        <ellipse cx="50" cy="72" rx="24" ry="19" fill="#ffc0d9" />
+                        <rect x="32" y="83" width="10" height="8" rx="4" fill="#ffaac8" />
+                        <rect x="58" y="83" width="10" height="8" rx="4" fill="#ffaac8" />
+                        <ellipse cx="50" cy="46" rx="22" ry="20" fill="#ffd4e8" />
+                        <g class="ear-left" style="transform-origin:34px 30px">
+                            <polygon points="28,30 34,14 42,30" fill="#ffc0d9" />
+                            <polygon points="30,29 34,17 40,29" fill="#ff8fb3" />
                         </g>
-                    </g>
-
-                    <!-- Ojo derecho — corazón enamorado -->
-                    <g class="eye-right" style="transform-origin:60px 46px">
-                        <ellipse cx="60" cy="46" rx="8" ry="8" fill="#fff0f5" />
-                        <g class="heart-eye" style="transform-origin:60px 46px">
-                            <path
-                                d="M60 50 C60 50 53 44 53 40 C53 37 56 35 60 39 C64 35 67 37 67 40 C67 44 60 50 60 50Z"
-                                fill="#ff4d78" transform="scale(0.55) translate(72,34)" />
+                        <g class="ear-right" style="transform-origin:66px 30px">
+                            <polygon points="58,30 66,14 72,30" fill="#ffc0d9" />
+                            <polygon points="60,29 66,17 70,29" fill="#ff8fb3" />
                         </g>
+                        <g class="eye-left" style="transform-origin:40px 46px">
+                            <ellipse cx="40" cy="46" rx="8" ry="8" fill="#fff0f5" />
+                            <g class="heart-eye" style="transform-origin:40px 46px">
+                                <path d="M40 50 C40 50 33 44 33 40 C33 37 36 35 40 39 C44 35 47 37 47 40 C47 44 40 50 40 50Z" fill="#ff4d78" transform="scale(0.55) translate(32,34)" />
+                            </g>
+                        </g>
+                        <g class="eye-right" style="transform-origin:60px 46px">
+                            <ellipse cx="60" cy="46" rx="8" ry="8" fill="#fff0f5" />
+                            <g class="heart-eye" style="transform-origin:60px 46px">
+                                <path d="M60 50 C60 50 53 44 53 40 C53 37 56 35 60 39 C64 35 67 37 67 40 C67 44 60 50 60 50Z" fill="#ff4d78" transform="scale(0.55) translate(72,34)" />
+                            </g>
+                        </g>
+                        <ellipse cx="50" cy="53" rx="3" ry="2" fill="#ff8fb3" />
+                        <path d="M47 55 Q50 59 53 55" fill="none" stroke="#ff8fb3" stroke-width="1.5" stroke-linecap="round" />
+                        <line class="whisker" x1="28" y1="51" x2="44" y2="53" stroke="#e897bb" stroke-width="1.2" stroke-linecap="round" />
+                        <line class="whisker" x1="26" y1="54" x2="43" y2="54" stroke="#e897bb" stroke-width="1.2" stroke-linecap="round" />
+                        <line class="whisker right" x1="56" y1="53" x2="72" y2="51" stroke="#e897bb" stroke-width="1.2" stroke-linecap="round" />
+                        <line class="whisker right" x1="57" y1="54" x2="74" y2="54" stroke="#e897bb" stroke-width="1.2" stroke-linecap="round" />
+                        <ellipse cx="35" cy="56" rx="5" ry="3" fill="rgba(255,120,160,0.25)" />
+                        <ellipse cx="65" cy="56" rx="5" ry="3" fill="rgba(255,120,160,0.25)" />
+                        <ellipse cx="50" cy="76" rx="14" ry="10" fill="rgba(255,255,255,0.25)" />
                     </g>
+                </svg>
 
-                    <!-- Nariz -->
-                    <ellipse cx="50" cy="53" rx="3" ry="2" fill="#ff8fb3" />
-
-                    <!-- Boca -->
-                    <path d="M47 55 Q50 59 53 55" fill="none" stroke="#ff8fb3" stroke-width="1.5"
-                        stroke-linecap="round" />
-
-                    <!-- Bigotes izquierdos -->
-                    <line class="whisker" x1="28" y1="51" x2="44" y2="53" stroke="#e897bb" stroke-width="1.2"
-                        stroke-linecap="round" />
-                    <line class="whisker" x1="26" y1="54" x2="43" y2="54" stroke="#e897bb" stroke-width="1.2"
-                        stroke-linecap="round" />
-
-                    <!-- Bigotes derechos -->
-                    <line class="whisker right" x1="56" y1="53" x2="72" y2="51" stroke="#e897bb" stroke-width="1.2"
-                        stroke-linecap="round" />
-                    <line class="whisker right" x1="57" y1="54" x2="74" y2="54" stroke="#e897bb" stroke-width="1.2"
-                        stroke-linecap="round" />
-
-                    <!-- Rubores -->
-                    <ellipse cx="35" cy="56" rx="5" ry="3" fill="rgba(255,120,160,0.25)" />
-                    <ellipse cx="65" cy="56" rx="5" ry="3" fill="rgba(255,120,160,0.25)" />
-
-                    <!-- Pancita -->
-                    <ellipse cx="50" cy="76" rx="14" ry="10" fill="rgba(255,255,255,0.25)" />
-                </g>
-            </svg>
+                <!-- SVG gato baron enamorado -->
+                <svg class="cat-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g class="cat-body-g">
+                        <path class="tail" d="M 68 75 Q 90 60 85 45 Q 80 35 72 42" fill="none" stroke="#f5b041" stroke-width="5" stroke-linecap="round" />
+                        <ellipse cx="50" cy="72" rx="24" ry="19" fill="#fad7a1" />
+                        <rect x="32" y="83" width="10" height="8" rx="4" fill="#f8c471" />
+                        <rect x="58" y="83" width="10" height="8" rx="4" fill="#f8c471" />
+                        <ellipse cx="50" cy="46" rx="22" ry="20" fill="#fdebd0" />
+                        <g class="ear-left" style="transform-origin:34px 30px">
+                            <polygon points="28,30 34,14 42,30" fill="#fad7a1" />
+                            <polygon points="30,29 34,17 40,29" fill="#e67e22" />
+                        </g>
+                        <g class="ear-right" style="transform-origin:66px 30px">
+                            <polygon points="58,30 66,14 72,30" fill="#fad7a1" />
+                            <polygon points="60,29 66,17 70,29" fill="#e67e22" />
+                        </g>
+                        <g class="eye-left" style="transform-origin:40px 46px">
+                            <ellipse cx="40" cy="46" rx="8" ry="8" fill="#fff0f5" />
+                            <g class="heart-eye" style="transform-origin:40px 46px">
+                                <path d="M40 50 C40 50 33 44 33 40 C33 37 36 35 40 39 C44 35 47 37 47 40 C47 44 40 50 40 50Z" fill="#ff4d78" transform="scale(0.55) translate(32,34)" />
+                            </g>
+                        </g>
+                        <g class="eye-right" style="transform-origin:60px 46px">
+                            <ellipse cx="60" cy="46" rx="8" ry="8" fill="#fff0f5" />
+                            <g class="heart-eye" style="transform-origin:60px 46px">
+                                <path d="M60 50 C60 50 53 44 53 40 C53 37 56 35 60 39 C64 35 67 37 67 40 C67 44 60 50 60 50Z" fill="#ff4d78" transform="scale(0.55) translate(72,34)" />
+                            </g>
+                        </g>
+                        <ellipse cx="50" cy="53" rx="3" ry="2" fill="#e67e22" />
+                        <path d="M47 55 Q50 59 53 55" fill="none" stroke="#e67e22" stroke-width="1.5" stroke-linecap="round" />
+                        <line class="whisker" x1="28" y1="51" x2="44" y2="53" stroke="#d35400" stroke-width="1.2" stroke-linecap="round" />
+                        <line class="whisker" x1="26" y1="54" x2="43" y2="54" stroke="#d35400" stroke-width="1.2" stroke-linecap="round" />
+                        <line class="whisker right" x1="56" y1="53" x2="72" y2="51" stroke="#d35400" stroke-width="1.2" stroke-linecap="round" />
+                        <line class="whisker right" x1="57" y1="54" x2="74" y2="54" stroke="#d35400" stroke-width="1.2" stroke-linecap="round" />
+                        <ellipse cx="35" cy="56" rx="5" ry="3" fill="rgba(230,126,34,0.3)" />
+                        <ellipse cx="65" cy="56" rx="5" ry="3" fill="rgba(230,126,34,0.3)" />
+                        <ellipse cx="50" cy="76" rx="14" ry="10" fill="rgba(255,255,255,0.25)" />
+                    </g>
+                </svg>
+            </div>
         </div> <!-- Cierra cat-wrap -->
     </div> <!-- Cierra flower-message -->
 
