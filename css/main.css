@@ -27,7 +27,7 @@ body {
   transform: translateX(-50%);
   width: 100%;
   height: 100%;
-  filter: blur(0.1vmin);
+  /* Removed filter: blur for iOS performance */
   background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), 
   radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), 
   repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, 
@@ -134,6 +134,9 @@ body {
 .flowers {
   position: relative;
   transform: scale(0.9);
+}
+.flowers, .flowers * {
+  will-change: transform;
 }
 
 .flower {
@@ -252,10 +255,9 @@ body {
   left: 0;
   top: 0;
   transform: translate(-50%, -100%);
-  width: 8vmin;
-  height: 8vmin;
-  background-color: #1aaa15;
-  filter: blur(10vmin);
+  width: 12vmin;
+  height: 12vmin;
+  background: radial-gradient(circle, rgba(26, 170, 21, 0.6) 0%, transparent 60%);
 }
 .flower__leaf {
   position: absolute;
@@ -387,7 +389,7 @@ body {
   height: 1vmin;
   background-color: rgb(255, 251, 0);
   border-radius: 50%;
-  filter: blur(0.2vmin);
+  box-shadow: 0 0 0.5vmin rgb(255, 251, 0);
   -webkit-animation: light-ans 4s linear infinite backwards;
           animation: light-ans 4s linear infinite backwards;
 }
@@ -650,8 +652,7 @@ body {
   right: 0%;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  filter: blur(1.5vmin);
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
   z-index: 100;
 }
 .flower__g-long {
@@ -729,7 +730,6 @@ body {
 }
 .flower__g-right--2 .leaf {
   height: 75vmin;
-  filter: blur(0.3vmin);
   opacity: 0.8;
 }
 @-webkit-keyframes flower-g-right-ans {
@@ -1125,14 +1125,12 @@ body {
   left: 0vmin;
   bottom: -20vmin;
   z-index: 100;
-  filter: blur(0.3vmin);
   transform: scale(0.8) rotate(2deg);
 }
 .long-g--7 {
   left: 35vmin;
   bottom: 20vmin;
   z-index: -1;
-  filter: blur(0.3vmin);
   transform: scale(0.6) rotate(2deg);
   opacity: 0.7;
 }
@@ -1260,16 +1258,13 @@ body {
   50% {
     opacity: 1;
     transform: translateY(-15vmin) translateX(2vmin);
-    filter: blur(0.2vmin);
   }
   75% {
     transform: translateY(-20vmin) translateX(-2vmin);
-    filter: blur(0.2vmin);
   }
   100% {
     transform: translateY(-30vmin);
     opacity: 0;
-    filter: blur(1vmin);
   }
 }
 @keyframes light-ans {
@@ -1284,16 +1279,13 @@ body {
   50% {
     opacity: 1;
     transform: translateY(-15vmin) translateX(2vmin);
-    filter: blur(0.2vmin);
   }
   75% {
     transform: translateY(-20vmin) translateX(-2vmin);
-    filter: blur(0.2vmin);
   }
   100% {
     transform: translateY(-30vmin);
     opacity: 0;
-    filter: blur(1vmin);
   }
 }
 @-webkit-keyframes moving-flower-1 {
