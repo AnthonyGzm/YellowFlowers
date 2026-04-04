@@ -1,41 +1,561 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>FLORES</title>
+    <title>🌸</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #e8a0b4;
+            --rose-deep: #c9607a;
+            --cream: #fff5f7;
+            --gold: #d4a853;
+            --dark: #1a0a10;
+        }
+
+        body {
+            background-color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Estrellas */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            animation: twinkle var(--dur, 3s) var(--del, 0s) ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.1;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 0.9;
+                transform: scale(1.4);
+            }
+        }
+
+        /* Pétalos */
+        .petals-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            top: -60px;
+            width: var(--s, 12px);
+            height: var(--s, 12px);
+            background: radial-gradient(circle at 30% 30%, #ffb3c6, #e8799a);
+            border-radius: 0 100% 0 100%;
+            opacity: 0.7;
+            animation: fall var(--dur, 8s) var(--del, 0s) linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-60px) translateX(0) rotate(0deg);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translateY(50vh) translateX(var(--sway, 40px)) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(110vh) translateX(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Card */
+        .card {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            animation: card-in 1.2s cubic-bezier(.22, 1, .36, 1) both;
+        }
+
+        @keyframes card-in {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart-icon {
+            font-size: 3rem;
+            animation: heartbeat 1.4s ease-in-out infinite;
+            filter: drop-shadow(0 0 12px rgba(232, 160, 180, 0.8));
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            14% {
+                transform: scale(1.15);
+            }
+
+            28% {
+                transform: scale(1);
+            }
+
+            42% {
+                transform: scale(1.1);
+            }
+
+            70% {
+                transform: scale(1);
+            }
+        }
+
+        .greeting {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
+            font-weight: 300;
+            font-style: italic;
+            color: transparent;
+            background: linear-gradient(135deg, #f9ccd6 0%, var(--rose-deep) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter: drop-shadow(0 4px 24px rgba(201, 96, 122, 0.4));
+            line-height: 1.1;
+        }
+
+        .greeting span {
+            display: inline-block;
+            animation: letter-drop 0.6s cubic-bezier(.22, 1, .36, 1) both;
+        }
+
+        .greeting span:nth-child(1) {
+            animation-delay: .3s
+        }
+
+        .greeting span:nth-child(2) {
+            animation-delay: .42s
+        }
+
+        .greeting span:nth-child(3) {
+            animation-delay: .54s
+        }
+
+        .greeting span:nth-child(4) {
+            animation-delay: .66s
+        }
+
+        .greeting span:nth-child(5) {
+            animation-delay: .78s
+        }
+
+        .greeting span:nth-child(6) {
+            animation-delay: .9s
+        }
+
+        .greeting span:nth-child(7) {
+            animation-delay: 1.02s
+        }
+
+        .greeting span:nth-child(8) {
+            animation-delay: 1.14s
+        }
+
+        .greeting span:nth-child(9) {
+            animation-delay: 1.26s
+        }
+
+        @keyframes letter-drop {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) rotate(-8deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        .divider {
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rose), var(--gold), var(--rose), transparent);
+            animation: expand-line 1s 1.6s ease-out both;
+        }
+
+        @keyframes expand-line {
+            to {
+                width: 220px;
+            }
+        }
+
+        .message-top {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            font-weight: 300;
+            color: rgba(255, 230, 238, .85);
+            margin-bottom: -15px;
+            animation: fade-up .8s 1.7s ease-out both;
+        }
+
+        .subtitle {
+            font-weight: 300;
+            font-size: clamp(.85rem, 2.5vw, 1.1rem);
+            color: rgba(255, 220, 230, .75);
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            animation: fade-up .8s 1.8s ease-out both;
+        }
+
+        .message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 3vw, 1.35rem);
+            font-weight: 300;
+            color: rgba(255, 230, 238, .85);
+            max-width: 380px;
+            line-height: 1.8;
+            animation: fade-up .8s 2s ease-out both;
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-wrapper {
+            animation: fade-up .8s 2.4s ease-out both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: .9rem 2.8rem;
+            background: transparent;
+            border: 1px solid rgba(232, 160, 180, .5);
+            border-radius: 100px;
+            color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: .85rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .4s, color .4s, box-shadow .4s;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(232, 160, 180, .15), rgba(212, 168, 83, .1));
+            opacity: 0;
+            transition: opacity .4s;
+        }
+
+        .btn:hover {
+            border-color: var(--rose);
+            color: #fff;
+            box-shadow: 0 0 30px rgba(232, 160, 180, .35), 0 0 60px rgba(232, 160, 180, .12);
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        /* Indicador de música */
+        .music-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.8rem;
+            color: rgba(255, 200, 215, 0.45);
+            letter-spacing: 0.1em;
+            animation: fade-up 1s 2.2s ease-out both;
+            cursor: pointer;
+            border: 1px solid rgba(255, 160, 190, 0.18);
+            padding: 0.4rem 1.2rem;
+            border-radius: 100px;
+            transition: color 0.3s, border-color 0.3s;
+            margin: 0.5rem 0;
+        }
+
+        .music-badge:hover {
+            color: rgba(255, 200, 215, 0.75);
+            border-color: rgba(255, 160, 190, 0.4);
+        }
+
+        .music-badge .bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 12px;
+        }
+
+        .music-badge .bar {
+            width: 2px;
+            background: rgba(255, 180, 205, 0.6);
+            border-radius: 1px;
+            animation: eq var(--s, 0.8s) var(--d, 0s) ease-in-out infinite alternate;
+        }
+
+        .music-badge .bar:nth-child(1) {
+            --s: .7s;
+            --d: 0s;
+            height: 5px;
+        }
+
+        .music-badge .bar:nth-child(2) {
+            --s: .5s;
+            --d: .1s;
+            height: 10px;
+        }
+
+        .music-badge .bar:nth-child(3) {
+            --s: .9s;
+            --d: .2s;
+            height: 7px;
+        }
+
+        .music-badge .bar:nth-child(4) {
+            --s: .6s;
+            --d: .05s;
+            height: 12px;
+        }
+
+        .music-badge .bar:nth-child(5) {
+            --s: .8s;
+            --d: .15s;
+            height: 6px;
+        }
+
+        @keyframes eq {
+            from {
+                transform: scaleY(0.3);
+            }
+
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        .music-badge.paused .bar {
+            animation-play-state: paused;
+        }
+
+        .footer-note {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: rgba(255, 200, 215, 0.5);
+            animation: fade-up 1s 2.8s ease-out both;
+            white-space: nowrap;
+            z-index: 10;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="greetings">
-        <span>H</span>
-        <span>O</span>
-        <span>L</span>
-        <span>A</span>
-        <span class="space"></span>
-        <span>B</span>
-        <span>E</span>
-        <span>B</span>
-        <span>E</span>
+    <!-- Audio de fondo -->
+    <audio id="bgAudio" loop autoplay>
+        <source src="img/Lugar-Seguro.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="stars" id="stars"></div>
+    <div class="petals-container" id="petals"></div>
+
+    <div class="card">
+        <div class="heart-icon">🌸</div>
+        <h1 class="greeting">
+            <span>H</span><span>o</span><span>l</span><span>a</span><span>&nbsp;</span><span>B</span><span>e</span><span>b</span><span>e</span>
+        </h1>
+        <div class="divider"></div>
+        <p class="message-top">Eres el motivo de mi sonrisa todos los días.</p>
+        <p class="subtitle">Tengo algo especial para ti</p>
+        <p class="message">Cada flor que florezca hoy lleva tu nombre, mi amor.</p>
+
+        <!-- Badge de música centrado -->
+        <div class="music-badge" id="musicBadge" onclick="toggleMusic()">
+            <div class="bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <span id="musicLabel">Lugar Seguro ♪</span>
+        </div>
+
+        <div class="btn-wrapper">
+            <a class="btn" id="btnRegalo" href="FLORES.html">Ver tu regalo</a>
+        </div>
     </div>
-    <div class="greetings">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="description">
-        <span>Tengo un regalo especial para ti mi amor!!</span>       
-    </div>
-    <div class="button">
-        <button>
-            <a href="FLORES.html">Presiona Aqui BB</a>
-        </button>
-        
-    </div>
+
+    <p class="footer-note">Desarrollado por Anthony Guzman</p>
+
+    <script>
+        // Estrellas
+        const starsEl = document.getElementById('stars');
+        for (let i = 0; i < 120; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            const size = Math.random() * 2.5 + 0.5;
+            s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${size}px;height:${size}px;--dur:${2 + Math.random() * 4}s;--del:${Math.random() * 5}s;`;
+            starsEl.appendChild(s);
+        }
+
+        // Pétalos
+        const petalsEl = document.getElementById('petals');
+        for (let i = 0; i < 18; i++) {
+            const p = document.createElement('div');
+            p.className = 'petal';
+            const size = 8 + Math.random() * 14;
+            p.style.cssText = `left:${Math.random() * 100}%;--s:${size}px;--dur:${6 + Math.random() * 10}s;--del:${Math.random() * 12}s;--sway:${-50 + Math.random() * 100}px;`;
+            petalsEl.appendChild(p);
+        }
+
+        // Audio — intentar autoplay, si falla esperar interacción
+        const audio = document.getElementById('bgAudio');
+        const badge = document.getElementById('musicBadge');
+        const label = document.getElementById('musicLabel');
+        let playing = false;
+
+        function playAudio() {
+            audio.volume = 0.45;
+            audio.play().then(() => {
+                playing = true;
+                badge.classList.remove('paused');
+                label.textContent = 'Lugar Seguro ♪';
+            }).catch(() => {
+                // Autoplay bloqueado — esperar cualquier leve interacción
+            });
+        }
+
+        function toggleMusic() {
+            if (playing) {
+                audio.pause();
+                playing = false;
+                badge.classList.add('paused');
+                label.textContent = 'Reproducir ♪';
+            } else {
+                audio.play();
+                playing = true;
+                badge.classList.remove('paused');
+                label.textContent = 'Lugar Seguro ♪';
+            }
+        }
+
+        // Intentar autoplay al cargar
+        window.addEventListener('load', playAudio);
+
+        // Intentar autoplay agresivamente de fondo por si el navegador lo libera
+        const playAttempt = setInterval(() => {
+            if (!playing) {
+                audio.play().then(() => {
+                    playing = true;
+                    badge.classList.remove('paused');
+                    label.textContent = 'Lugar Seguro ♪';
+                    clearInterval(playAttempt);
+                }).catch(() => { });
+            } else {
+                clearInterval(playAttempt);
+            }
+        }, 1000);
+
+        // Activar con la más mínima interacción (movimiento de mouse, scroll, tecla, toque, click)
+        const unlockAudio = () => {
+            if (!playing) { playAudio(); }
+            ['click', 'touchstart', 'mousemove', 'scroll', 'keydown'].forEach(evt =>
+                document.removeEventListener(evt, unlockAudio)
+            );
+        };
+
+        ['click', 'touchstart', 'mousemove', 'scroll', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, unlockAudio, { once: true });
+        });
+
+        // Navegación sin interrupción a FLORES.html
+        document.getElementById('btnRegalo').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Creamos iframe para que la música no se interrumpa
+            const iframe = document.createElement('iframe');
+            iframe.src = this.href;
+            iframe.style.cssText = 'position:fixed; inset:0; width:100%; height:100%; border:none; z-index:9999; opacity:0; transition: opacity 1.5s ease-in-out; background: var(--dark);';
+
+            document.body.appendChild(iframe);
+
+            // Fade in the iframe
+            setTimeout(() => {
+                iframe.style.opacity = '1';
+            }, 50);
+
+            // Aseguramos que la música esté sonando, si aún no ha empezado
+            if (!playing) {
+                audio.play();
+                playing = true;
+                badge.classList.remove('paused');
+            }
+        });
+    </script>
 </body>
+
 </html>
